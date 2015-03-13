@@ -12,7 +12,8 @@ module Listen where
 -- Liefert die Länge (= Anzahl der Zeichen) eines Strings zurück
 -- Beispiel: längeS "Haskell" == 7
 -- Punkte: 1
-längeS :: String -> Int
+--längeS :: String -> Int
+längeS :: [a] -> Int
 längeS [] = 0
 längeS (x:xs) = 1 + längeS(xs)
 
@@ -35,7 +36,8 @@ längsterString (x:xs)
 -- Zeichenzahl, dann sollen einfach so viele Zeichen wie möglich retourniert werden.
 -- Beispiel: nimm 3 "ABCDEF" == "ABC"; nimm 3 "AB" == "AB"; nimm 3 [] == []
 -- Punkte: 2
-nimm :: Int -> [Char] -> [Char]
+--nimm :: Int -> [Char] -> [Char]
+nimm :: Int -> [a] -> [a]
 nimm 0 _ = []
 nimm _ [] = []
 nimm n (x:xs) | n > 0 = x : nimm (n-1) xs
@@ -45,7 +47,8 @@ nimm n (x:xs) | n > 0 = x : nimm (n-1) xs
 -- Zeichenzahl, dann sollen einfach die leere Liste retourniert werden.
 -- Beispiel: verwirf 3 "ABCDEF" == "DEF"; verwirf 3 "AB" == []; verwirf 3 [] == []
 -- Punkte: 2
-verwirf :: Int -> [Char] -> [Char]
+--verwirf :: Int -> [Char] -> [Char]
+verwirf :: Int -> [a] -> [a]
 verwirf _ [] = []
 verwirf 0 xs = xs
 verwirf n (x:xs) | n > 0 = verwirf (n-1) xs
@@ -58,7 +61,9 @@ verwirf n (x:xs) | n > 0 = verwirf (n-1) xs
 -- Beispiel: halbieren [1,2,3,4,5] == ([1,2,3], [4,5])
 -- Punkte: 2
 halbieren :: [Int] -> ([Int], [Int])
-halbieren = undefined
+halbieren [] = ([], [])
+halbieren xs = (nimm halb xs, verwirf halb xs)
+               where halb = div (längeS xs) 2
 {- Tipp: Verwenden Sie die Funktionen längeS, nimm und verwirf.
          Verwenden Sie Hilfsvariable. -}
 
