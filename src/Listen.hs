@@ -83,7 +83,9 @@ zweiteilen (x:y:xys) = (x:xs, y:ys)
 -- Beispiel: umkehren [1,2,3] == [3,2,1]
 -- Punkte: 3
 umkehren :: [Int] -> [Int]
-umkehren = undefined
+umkehren list = umk_acc list []
+  where umk_acc [] acc = acc
+        umk_acc (x:xs) acc = umk_acc xs (x:acc)
 {- Tipp: am einfachsten lässt sich die Funktion umsetzen, wenn Sie eine
          Hilfsfunktion mit Akkumulator verwenden. -}
 
