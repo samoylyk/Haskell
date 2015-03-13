@@ -112,8 +112,10 @@ lokalesMinimum (x:y:z:xs)
 -- Beispiel: filterUngerade [1,2,3,7,12] == [1,3,7]
 -- Punkte: 2
 filterUngerade :: [Int] -> [Int]
-filterUngerade = undefined
-
+filterUngerade [] = []
+filterUngerade (x:xs)
+          | mod x 2 == 1 = x:filterUngerade xs
+          | otherwise = filterUngerade xs
 
 -- Gibt an, ob die gesuchte Zahl in der Liste enthalten ist
 -- Beispiel: enthält 3 [1,2,3,4] == True; enthält 3 [1,2,4] == False
