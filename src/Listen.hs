@@ -149,4 +149,6 @@ zusammenfügen xss = [x | xs <- xss, x <- xs]
 -- Beispiel: suffixe "Haskell" = ["Haskell", "askell", "skell", "kell", "ell", "ll", "l", ""]
 -- Punkte: 3
 suffixe :: String -> [String]
-suffixe = undefined
+suffixe [] = [""]
+suffixe (x:xs) = (x:xs) : suffixe xs
+
