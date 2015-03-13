@@ -121,8 +121,10 @@ filterUngerade (x:xs)
 -- Beispiel: enthält 3 [1,2,3,4] == True; enthält 3 [1,2,4] == False
 -- Punkte: 2
 enthält :: Int -> [Int] -> Bool
-enthält = undefined
-
+enthält _ [] = False
+enthält n (x:xs)
+          | n == x = True
+          | otherwise = enthält n xs
 
 -- Vergessen Sie nicht regelmäßig einzuchecken
 
