@@ -20,7 +20,11 @@ längeS (x:xs) = 1 + längeS(xs)
 -- Beispiel: längsterString ["ein", "zwei", "dreizehn", "zwölf"] == "dreizehn"
 -- Punkte: 3
 längsterString :: [String] -> String
-längsterString = undefined
+längsterString xs = g xs ""
+  where g [] s = s
+        g (x:xs) s
+          | längeS x > längeS s = g xs x
+          | otherwise = g xs s
 {- Tipp: Bei dieser Funktion ist eine Hilfsvariable bzw. ein Akkumulator nützlich.
          Merken Sie sich den längsten String (und optional dessen Länge) und
          vergleichen Sie den mit dem aktuellen String.
