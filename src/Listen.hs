@@ -132,7 +132,10 @@ enthält n (x:xs)
 -- Beispiel: zählen 3 [1,3,5,8,3,7] == 2
 -- Punkte: 2
 zählen :: Int -> [Int] -> Int
-zählen = undefined
+zählen n [] = 0
+zählen n (x:xs)
+          | n == x = 1 + zählen n xs
+          | otherwise = zählen n xs
 
 -- Vergessen Sie nicht regelmäßig einzuchecken
 
