@@ -95,7 +95,12 @@ umkehren list = umk_acc list []
 -- Beispiel: lokalesMinimum [4,1,6,8,7,9,3,4] == [1,7,3]
 -- Punkte: 2
 lokalesMinimum :: [Int] -> [Int]
-lokalesMinimum = undefined
+lokalesMinimum [] = []
+lokalesMinimum (x:[]) = []
+lokalesMinimum (x:y:[]) = []
+lokalesMinimum (x:y:z:xs)
+          | y < x && y < z = y:lokalesMinimum (z:xs)
+          | otherwise = lokalesMinimum (y:z:xs)
 {- Tipp: Der Cons-Operator kann auch mehrfach zur Dekonstruktion oder Kombination
          verwendet werden, z.B. (x:y:xs) oder (x:y:z:xs) -}
 
