@@ -72,7 +72,10 @@ halbieren xs = (nimm halb xs, verwirf halb xs)
 -- Beispiel: zweiteilen [1,2,3,4,5] == ([1,3,5], [2,4]) 
 -- Punkte: 3
 zweiteilen :: [Int] -> ([Int], [Int])
-zweiteilen = undefined
+zweiteilen [] = ([], [])
+zweiteilen [x] = ([x], [])
+zweiteilen (x:y:xys) = (x:xs, y:ys)
+                       where (xs, ys) = zweiteilen xys
 
 -- Vergessen Sie nicht regelmäßig einzuchecken
 
