@@ -36,9 +36,9 @@ längsterString (x:xs)
 -- Beispiel: nimm 3 "ABCDEF" == "ABC"; nimm 3 "AB" == "AB"; nimm 3 [] == []
 -- Punkte: 2
 nimm :: Int -> [Char] -> [Char]
+nimm 0 _ = []
 nimm _ [] = []
-nimm n _ | n <= 0 = []
-nimm n (x:xs) = x : nimm (n-1) xs
+nimm n (x:xs) | n > 0 = x : nimm (n-1) xs
 
 
 -- Löscht die ersten n Zeichen einer Liste. Ist die Liste kürzer als die angegebene
