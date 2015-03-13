@@ -143,8 +143,7 @@ zählen n (x:xs)
 -- Beispiel: zusammenfügen ["Hallo", " ", "Haskell", "!"] == "Hallo Haskell!" 
 -- Punkte: 3
 zusammenfügen :: [String] -> String
-zusammenfügen [] = []
-zusammenfügen (x:xs) = x ++ (zusammenfügen xs)
+zusammenfügen xss = [x | xs <- xss, x <- xs]
 
 -- Retourniert alle Suffixe eines Strings
 -- Beispiel: suffixe "Haskell" = ["Haskell", "askell", "skell", "kell", "ell", "ll", "l", ""]
