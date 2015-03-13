@@ -46,7 +46,9 @@ nimm n (x:xs) | n > 0 = x : nimm (n-1) xs
 -- Beispiel: verwirf 3 "ABCDEF" == "DEF"; verwirf 3 "AB" == []; verwirf 3 [] == []
 -- Punkte: 2
 verwirf :: Int -> [Char] -> [Char]
-verwirf n l = undefined
+verwirf _ [] = []
+verwirf 0 xs = xs
+verwirf n (x:xs) | n > 0 = verwirf (n-1) xs
 
 
 -- Vergessen Sie nicht regelmäßig einzuchecken
