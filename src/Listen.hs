@@ -13,7 +13,8 @@ module Listen where
 -- Beispiel: längeS "Haskell" == 7
 -- Punkte: 1
 längeS :: String -> Int
-längeS = undefined
+längeS [] = 0
+längeS (x:xs) = 1 + längeS(xs)
 
 -- Liefert den längesten String aus einer Liste von Strings zurück
 -- Beispiel: längsterString ["ein", "zwei", "dreizehn", "zwölf"] == "dreizehn"
