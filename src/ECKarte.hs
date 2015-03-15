@@ -61,7 +61,7 @@ querSumme (x:xs) = x `mod` 10 + x `div` 10 + querSumme xs
 -- Beispiel: valide 5672 == False; valide 5678 == True
 -- Punkte: 3
 valide :: Int -> Bool
-valide = undefined
+valide xs = querSumme (verdopple (ziffernRev xs)) `mod` 10  == 0
 {- Tipp: verwenden Sie alle vorhergehenden Funktione. ziffernRev ist hilfreich. -}
 
 -- Errechne die notwendige Prüfziffer für eine Zahl (die Prüfziffer wird am Ende angehängt)
