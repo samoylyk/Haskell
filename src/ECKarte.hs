@@ -28,7 +28,8 @@ ziffern n = g n []
 -- Beispiel: ziffern 45612 == [2,1,6,5,4]
 -- Punkte: 1
 ziffernRev :: Int -> [Int]
-ziffernRev = undefined
+ziffernRev 0 = []
+ziffernRev n = umkehren (ziffern n)
 {- Mit der umkehren-Funktion aus dem Listen-Modul sollte das einfach sein. -}
 
 
