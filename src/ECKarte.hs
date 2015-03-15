@@ -39,7 +39,9 @@ ziffernRev n = umkehren (ziffern n)
 -- Beispiel: verdopple [3,1,2,3,4,5] == [3,2,2,6,4,10]
 -- Punkte: 2
 verdopple :: [Int] -> [Int]
-verdopple = undefined
+verdopple [] = []
+verdopple [x] = [x]
+verdopple (x:y:xs) = x : (2 * y): verdopple xs
 {- Tipp: Der Cons-Operator kann auch mehrfach zur Dekonstruktion oder Kombination
          verwendet werden, z.B. (x:y:xs) oder (x:y:z:xs) -}
 
