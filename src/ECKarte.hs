@@ -41,7 +41,7 @@ ziffernRev n = umkehren (ziffern n)
 verdopple :: [Int] -> [Int]
 verdopple [] = []
 verdopple [x] = [x]
-verdopple (x:y:xs) = x : (2 * y): verdopple xs
+verdopple (x:y:xs) = x : (2 * y) : verdopple xs
 {- Tipp: Der Cons-Operator kann auch mehrfach zur Dekonstruktion oder Kombination
          verwendet werden, z.B. (x:y:xs) oder (x:y:z:xs) -}
 
@@ -49,7 +49,8 @@ verdopple (x:y:xs) = x : (2 * y): verdopple xs
 -- Beispiel: querSumme [12,3,5,22] == 1+2+3+5+2+2 == 15
 -- Punkte: 3
 querSumme :: [Int] -> Int
-querSumme = undefined
+querSumme [] = 0
+querSumme (x:xs) = x `mod` 10 + x `div` 10 + querSumme xs
 {- Tipp: Verwenden Sie eine Hilfsfunktion, die mithilfe der ziffern-Funktion die Zahlen
          aufzusplittet und die Teile summiert. Diese Ergebnisse ergeben in Summe die querSumme. -} 
 
