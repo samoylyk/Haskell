@@ -17,7 +17,10 @@ import Listen
 -- Beispiel: ziffern 45612 == [4,5,6,1,2]
 -- Punkte: 3
 ziffern :: Int -> [Int]
-ziffern = undefined
+ziffern 0 = []
+ziffern n = g n []
+            where g 0 acc = acc
+                  g n acc = g (div n 10) (mod n 10 : acc)
 {- Tipp: verwenden Sie eine Rekursion und die Funktionen "div" (Division) und "mod" (Modulo, Rest),
          um die Berechnung durchzuführen. Auch ein Akkumulator kann helfen. -}
 
