@@ -15,7 +15,7 @@ module Listen where
 --längeS :: String -> Int
 längeS :: [a] -> Int
 längeS [] = 0
-längeS (x:xs) = 1 + längeS(xs)
+längeS (_:xs) = 1 + längeS xs
 
 -- Liefert den längesten String aus einer Liste von Strings zurück
 -- Beispiel: längsterString ["ein", "zwei", "dreizehn", "zwölf"] == "dreizehn"
@@ -38,9 +38,9 @@ längsterString (x:xs)
 -- Punkte: 2
 --nimm :: Int -> [Char] -> [Char]
 nimm :: Int -> [a] -> [a]
-nimm 0 _ = []
 nimm _ [] = []
-nimm n (x:xs) | n > 0 = x : nimm (n-1) xs
+nimm n _ | n <= 0  = []
+nimm n (x:xs) = x : nimm (n-1) xs
 
 
 -- Löscht die ersten n Zeichen einer Liste. Ist die Liste kürzer als die angegebene
@@ -50,8 +50,8 @@ nimm n (x:xs) | n > 0 = x : nimm (n-1) xs
 --verwirf :: Int -> [Char] -> [Char]
 verwirf :: Int -> [a] -> [a]
 verwirf _ [] = []
-verwirf 0 xs = xs
-verwirf n (x:xs) | n > 0 = verwirf (n-1) xs
+verwirf n xs | n<=0 = xs
+verwirf n (_:xs) = verwirf (n-1) xs
 
 
 -- Vergessen Sie nicht regelmäßig einzuchecken
@@ -99,7 +99,7 @@ lokalesMinimum [] = []
 lokalesMinimum (x:[]) = []
 lokalesMinimum (x:y:[]) = []
 lokalesMinimum (x:y:z:xs)
-          | y < x && y < z = y:lokalesMinimum (z:xs)
+          | y < x && y < z = y : lokalesMinimum (z:xs)
           | otherwise = lokalesMinimum (y:z:xs)
 {- Tipp: Der Cons-Operator kann auch mehrfach zur Dekonstruktion oder Kombination
          verwendet werden, z.B. (x:y:xs) oder (x:y:z:xs) -}
@@ -114,7 +114,7 @@ lokalesMinimum (x:y:z:xs)
 filterUngerade :: [Int] -> [Int]
 filterUngerade [] = []
 filterUngerade (x:xs)
-          | mod x 2 == 1 = x:filterUngerade xs
+          | mod x 2 == 1 = x : filterUngerade xs
           | otherwise = filterUngerade xs
 
 -- Gibt an, ob die gesuchte Zahl in der Liste enthalten ist
