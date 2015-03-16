@@ -61,11 +61,11 @@ querSumme (x:xs) = x `mod` 10 + x `div` 10 + querSumme xs
 -- Beispiel: valide 5672 == False; valide 5678 == True
 -- Punkte: 3
 valide :: Int -> Bool
-valide xs = querSumme (verdopple (ziffernRev xs)) `mod` 10  == 0
+valide x = querSumme (verdopple (ziffernRev x)) `mod` 10  == 0
 {- Tipp: verwenden Sie alle vorhergehenden Funktione. ziffernRev ist hilfreich. -}
 
 -- Errechne die notwendige Prüfziffer für eine Zahl (die Prüfziffer wird am Ende angehängt)
 -- Beispiel: prüfziffer 876 == 3 (weil: valide 8763 == True)
 -- Punkte: 3
 prüfziffer :: Int -> Int
-prüfziffer xs = 10 - (querSumme (verdopple (ziffernRev xs)) `mod` 10) `mod` 10
+prüfziffer x = 10 - querSumme(verdopple(ziffernRev (x*10))) `mod` 10
