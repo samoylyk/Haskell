@@ -68,4 +68,4 @@ valide xs = querSumme (verdopple (ziffernRev xs)) `mod` 10  == 0
 -- Beispiel: prüfziffer 876 == 3 (weil: valide 8763 == True)
 -- Punkte: 3
 prüfziffer :: Int -> Int
-prüfziffer xs = (10 - querSumme (verdopple (ziffernRev xs))) `mod` 10
+prüfziffer xs = 10 - (querSumme (verdopple (ziffernRev xs)) `mod` 10) `mod` 10
